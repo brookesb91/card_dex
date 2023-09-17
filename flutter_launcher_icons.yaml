@@ -1,0 +1,29 @@
+flutter_icons:
+  #   The default icon to use for all platforms.
+  icon_path: 'icons/icon.png'
+
+  #   === Android configuration ===
+  min_sdk_android: 21
+  #   The name of the generated Android icon resource.
+  #   Leaving this as 'ic_launcher' is fine in most cases.
+  android: 'ic_launcher'
+  #   Default image for Android icons.
+  image_path_android: 'icons/icon_alpha.png'
+  #   Adaptive icon background can be either an image path
+  #   or a hex color.
+  #   Adaptive icon foreground should have a transparent background.
+  adaptive_icon_background: '#FFFFFF'
+  adaptive_icon_foreground: 'icons/icon_alpha.png'
+
+  #   === iOS configuration ===
+  ios: true
+  #   Default image for ios icons.
+  #   Should NOT have transparency.
+  image_path_ios: 'icons/icon.png'
+
+  #   === Web configuration ===
+  web:
+    generate: true
+    image_path: 'icons/icon.png'
+    background_color: '#FFFFFF'
+    theme_color: '#E4000F'

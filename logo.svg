@@ -1,0 +1,15 @@
+<svg width="1024" height="1024" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg">
+  <clipPath id="mask-left">
+    <rect x="0" y="0" width="512" height="1024" />
+  </clipPath>
+
+  <clipPath id="mask-right">
+    <rect x="512" y="0" width="512" height="1024" />
+  </clipPath>
+
+  <circle cx="512" cy="512" r="512" fill="#F0F0F0" />
+  <circle cx="512" cy="512" r="512" fill="#E4000F" clip-path="url(#mask-left)" />
+  <circle cx="512" cy="512" r="256" fill="#F0F0F0" />
+
+  <circle cx="512" cy="512" r="512" fill="#E8E8E8" clip-path="url(#mask-right)" />
+</svg>
