@@ -30,34 +30,49 @@ class _CardPageState extends State<CardPage> {
           itemCount: widget.cards.length,
           itemBuilder: (context, index) {
             final card = widget.cards[index];
-            return Center(
-              child: Hero(
-                tag: ValueKey('card-${card.id}'),
-                child: AspectRatio(
-                  aspectRatio: 240 / 330,
-                  child: Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Image.network(
-                      card.images['large']!,
-                      width: double.infinity,
-                      height: double.infinity,
-                      fit: BoxFit.fitWidth,
-                      loadingBuilder: (context, child, loadingProgress) {
-                        if (loadingProgress?.cumulativeBytesLoaded ==
-                            loadingProgress?.expectedTotalBytes) {
-                          return child;
-                        }
-                        return Center(
-                          child: CircularProgressIndicator(
-                            value: loadingProgress!.cumulativeBytesLoaded /
-                                loadingProgress.expectedTotalBytes!,
-                          ),
-                        );
-                      },
+            return CustomScrollView(
+              slivers: [
+                SliverFillRemaining(
+                  child: Hero(
+                    tag: ValueKey('card-${card.id}'),
+                    child: AspectRatio(
+                      aspectRatio: 240 / 330,
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Image.network(
+                          card.images['large']!,
+                          width: double.infinity,
+                          height: double.infinity,
+                          fit: BoxFit.fitWidth,
+                          loadingBuilder: (context, child, loadingProgress) {
+                            if (loadingProgress?.cumulativeBytesLoaded ==
+                                loadingProgress?.expectedTotalBytes) {
+                              return child;
+                            }
+                            return Center(
+                              child: CircularProgressIndicator(
+                                value: loadingProgress!.cumulativeBytesLoaded /
+                                    loadingProgress.expectedTotalBytes!,
+                              ),
+                            );
+                          },
+                        ),
+                      ),
                     ),
                   ),
                 ),
-              ),
+                SliverList.list(children: [
+                  ListTile(
+                    title: Text(card.name),
+                    leading: const Icon(Icons.catching_pokemon),
+                    subtitle: Text([
+                      if (card.subtypes?.isNotEmpty == true)
+                        card.subtypes?.join(', '),
+                      card.supertype
+                    ].join(' ')),
+                  ),
+                ])
+              ],
             );
           }),
     );

@@ -1,5 +1,4 @@
 import 'dart:async';
-
 import 'package:card_dex/models/pokemon_card_set.dart';
 import 'package:card_dex/pages/set_page.dart';
 import 'package:card_dex/repositories/set_repository.dart';

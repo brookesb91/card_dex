@@ -9,9 +9,6 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       body: PageView(children: const [
         SetsPage(),
-        Scaffold(
-          body: Text('Other Page'),
-        )
       ]),
     );
   }
