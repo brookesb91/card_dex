@@ -176,4 +176,12 @@ class _SetPageState extends State<SetPage> {
       ),
     );
   }
+
+  @override
+  void dispose() {
+    _subscription?.cancel();
+    _scrollController.dispose();
+
+    super.dispose();
+  }
 }
