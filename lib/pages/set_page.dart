@@ -8,11 +8,11 @@ import 'package:card_dex/widgets/card_grid_item.dart';
 import 'package:card_dex/widgets/set_list_item.dart';
 import 'package:flutter/material.dart';
 
-class CardSearchDelegate extends SearchDelegate {
+class _SetSearchDelegate extends SearchDelegate {
   final List<PokemonCard> cards;
   final void Function(PokemonCard card, int index) onTap;
 
-  CardSearchDelegate({required this.cards, required this.onTap});
+  _SetSearchDelegate({required this.cards, required this.onTap});
 
   @override
   List<Widget>? buildActions(BuildContext context) {
@@ -44,7 +44,7 @@ class CardSearchDelegate extends SearchDelegate {
 
   Widget _build(BuildContext context) {
     final results = query.isEmpty
-        ? List<(int, PokemonCard)>.empty()
+        ? cards.indexed
         : cards.indexed.where((item) {
             return item.$2.name.toLowerCase().contains(query.toLowerCase());
           }).toList();
@@ -117,7 +117,7 @@ class _SetPageState extends State<SetPage> {
                 onPressed: () {
                   showSearch(
                       context: context,
-                      delegate: CardSearchDelegate(
+                      delegate: _SetSearchDelegate(
                           cards: _cards,
                           onTap: (card, index) {
                             _showCard(context, index);
