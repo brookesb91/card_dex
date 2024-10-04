@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 class CardGridItem extends StatelessWidget {
   final PokemonCard card;
   final VoidCallback? onTap;
+
   const CardGridItem({super.key, required this.card, this.onTap});
 
   @override

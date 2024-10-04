@@ -46,14 +46,13 @@ class _SetSearchDelegate extends SearchDelegate {
     final results = query.isEmpty
         ? cards.indexed
         : cards.indexed.where((item) {
-            return item.$2.name.toLowerCase().contains(query.toLowerCase());
+            final (index, card) = item;
+            return card.name.toLowerCase().contains(query.toLowerCase());
           }).toList();
 
     return ListView(
       children: results.map((e) {
-        final index = e.$1;
-        final card = e.$2;
-
+        final (index, card) = e;
         return ListTile(
           leading: Padding(
             padding: const EdgeInsets.all(4),

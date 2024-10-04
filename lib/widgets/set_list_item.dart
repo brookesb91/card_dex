@@ -10,25 +10,28 @@ class SetListItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListTile(
-      trailing: trailing,
-      onTap: onTap,
-      subtitleTextStyle:
-          TextStyle(color: Theme.of(context).colorScheme.primary),
-      title: Text(set.name),
-      subtitle: Text(set.series),
-      leading: Hero(
-        tag: 'set-${set.id}',
-        child: AspectRatio(
-          aspectRatio: 1,
-          child: Container(
-            padding: const EdgeInsets.all(8),
-            decoration: BoxDecoration(
-              color: Theme.of(context).colorScheme.secondary.withOpacity(0.25),
-              borderRadius: BorderRadius.circular(8),
-            ),
-            child: Image.network(
-              set.images['symbol']!,
+    return Hero(
+      tag: 'set-${set.id}',
+      child: Material(
+        child: ListTile(
+          trailing: trailing,
+          onTap: onTap,
+          subtitleTextStyle:
+              TextStyle(color: Theme.of(context).colorScheme.primary),
+          title: Text(set.name),
+          subtitle: Text(set.series),
+          leading: AspectRatio(
+            aspectRatio: 1,
+            child: Container(
+              padding: const EdgeInsets.all(8),
+              decoration: BoxDecoration(
+                color:
+                    Theme.of(context).colorScheme.secondary.withOpacity(0.25),
+                borderRadius: BorderRadius.circular(8),
+              ),
+              child: Image.network(
+                set.images['symbol']!,
+              ),
             ),
           ),
         ),

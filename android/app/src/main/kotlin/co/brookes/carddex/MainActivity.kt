@@ -1,4 +1,4 @@
-package co.brookes.card_dex
+package co.brookes.carddex
 
 import io.flutter.embedding.android.FlutterActivity
 
