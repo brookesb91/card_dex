@@ -132,6 +132,8 @@ class _SetPageState extends State<SetPage> {
                 height: 32,
                 width: 100,
                 fit: BoxFit.contain,
+                errorBuilder: (context, error, stackTrace) =>
+                    const SizedBox.shrink(),
               ),
             ),
           ),
