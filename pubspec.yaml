@@ -69,7 +69,6 @@ flutter:
   # https://flutter.dev/assets-and-images/#from-packages
   assets:
     - data/cards/en/
-    - data/decks/en/
     - data/sets/
     - images/
 
